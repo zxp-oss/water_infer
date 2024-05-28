@@ -1,0 +1,496 @@
+{
+    "type": "A",
+    "tmp": "",
+    "Userproperty": {
+        "InputParameter": {
+            "Configuration": [
+                {
+                    "name": "IsOnline",
+                    "paramtype" : "1",
+                    "display": "1",
+                    "required": true,
+                    "title": "是否以在线计算模式调用",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "TargetName",
+                    "paramtype" : "0",
+                    "required": true,
+                    "title": "待提取类别",
+                    "type": "select",
+                    "tempValue": 
+                    [
+                        {
+                            "水体检测": "water"
+                        }
+                    ],
+                    "value": "water"
+                },
+                {
+                    "name": "PatchSize",
+                    "paramtype" : "0",
+                    "title": "切块大小",
+                    "required": false,
+                    "type": "select",
+                    "tempValue": [
+                        {
+                            "256": 256,
+                            "512": 512,
+                            "1024": 1024,
+                            "1280": 1280,
+                            "1536": 1536,
+                            "1792": 1792,
+                            "2048": 2048
+                        }
+                    ],
+                    "value": 512
+                },
+                {
+                    "name": "PatchStride",
+                    "paramtype" : "0",
+                    "title": "切块步长比例",
+                    "required": false,
+                    "type": "select",
+                    "tempValue": [
+                        {
+                            "256": 256,
+                            "512": 512,
+                            "1024": 1024,
+                            "1280": 1280,
+                            "1536": 1536,
+                            "1792": 1792,
+                            "2048": 2048
+                        }
+                    ],
+                    "value": 512
+                },
+                {
+                    "name": "RangeMin",
+                    "paramtype" : "0",
+                    "display" : "1",
+                    "required": true,
+                    "title": "分辨率最小值",
+                    "type": "int",
+                    "value": 3,
+                    "range" : {
+                        "min" : 0,
+                        "max" : 20
+                    }
+                },
+                {
+                    "name": "RangeMax",
+                    "paramtype" : "0",
+                    "display" : "1",
+                    "required": true,
+                    "title": "分辨率最大值",
+                    "type": "int",
+                    "value": 5,
+                    "range" : {
+                        "min" : 0,
+                        "max" : 20
+                    }
+                },
+                {
+                    "name": "UseAux",
+                    "paramtype" : "0",
+                    "required": false,
+                    "display": "1",
+                    "title": "使用遥感辅助",
+                    "type": "select",
+                    "tempValue": 
+                    [
+                        {
+                            "是": 1,
+                            "否": 0
+                        }
+                    ],
+                    "value": 1
+                },
+                {
+                    "name": "AuxLowThr",
+                    "paramtype" : "0",
+                    "title": "遥感辅助低阈值",
+                    "required": false,
+                    "display": "1",
+                    "type": "float",
+                    "value": 0.35,
+                    "range": {
+                        "min": 0.0,
+                        "max": 1.0
+                    }
+                },
+                {
+                    "name": "AuxHighThr",
+                    "paramtype" : "0",
+                    "title": "遥感辅助高阈值",
+                    "required": false,
+                    "display": "1",
+                    "type": "float",
+                    "value": 0.8,
+                    "range": {
+                        "min": 0.0,
+                        "max": 1.0
+                    }
+                },
+                {
+                    "name": "NirBand",
+                    "paramtype" : "0",
+                    "required": true,
+                    "title": "近红外波段",
+                    "type": "int",
+                    "value": 4,
+                    "range" : {
+                        "min" : 1,
+                        "max" : 10
+                    }
+                },
+                {
+                    "name": "RedBand",
+                    "paramtype" : "0",
+                    "required": true,
+                    "title": "红波段",
+                    "type": "int",
+                    "value": 3,
+                    "range" : {
+                        "min" : 1,
+                        "max" : 10
+                    }
+                },
+                {
+                    "name": "GreenBand",
+                    "paramtype" : "0",
+                    "required": true,
+                    "title": "绿波段",
+                    "type": "int",
+                    "value": 2,
+                    "range" : {
+                        "min" : 1,
+                        "max" : 10
+                    }
+                },
+                {
+                    "name": "BlueBand",
+                    "paramtype" : "0",
+                    "required": true,
+                    "title": "蓝波段",
+                    "type": "int",
+                    "value": 1,
+                    "range" : {
+                        "min" : 1,
+                        "max" : 10
+                    }
+                },
+                {
+                    "name": "ROIEPSG",
+                    "paramtype": "0",
+                    "display": "1",
+                    "required":false,
+                    "title":"ROI空间参考",
+                    "type":"int",
+                    "value":4326
+                },
+                {
+                    "name": "XMIN",
+                    "paramtype" : "0",
+                    "display": "1",
+                    "required": false,
+                    "title": "影像分析范围最小X",
+                    "type": "float",
+                    "value": -9999.0
+                },
+                {
+                    "name": "XMAX",
+                    "paramtype" : "0",
+                    "display": "1",
+                    "required": false,
+                    "title": "影像分析范围最大X",
+                    "type": "float",
+                    "value": -9999.0
+                },
+                {
+                    "name": "YMIN",
+                    "paramtype" : "0",
+                    "display": "1",
+                    "required": false,
+                    "title": "影像分析范围最小Y",
+                    "type": "float",
+                    "value": -9999.0
+                },
+                {
+                    "name": "YMAX",
+                    "paramtype" : "0",
+                    "display": "1",
+                    "required": false,
+                    "title": "影像分析范围最大Y",
+                    "type": "float",
+                    "value": -9999.0
+                }
+            ],
+            "InputFilePath":
+            [
+                {
+                    "multi": false,
+                    "required": true,
+                    "name": "InputImgFileName",
+                    "title": "输入影像",
+                    "type": "string",
+                    "value": "",
+                    "source":
+                    {
+                        "数据组织": "输入文件"
+                    }
+                }
+            ]
+        },
+        "OutputParameter": {
+            "Generalproperty" :
+            [
+                {
+                    "ProductUnit": "",
+                    "ConfidenceClass": "",
+                    "SatelliteID" : "GF1"
+                }
+            ],
+            "OutputFilePath":
+            [
+                {
+                    "multi":false,
+                    "name": "OutputImgFileName",
+                    "suffix": "_WATER_INFERENCE.tif",
+                    "title": "输出栅格文件",
+                    "type": "string",
+                    "value": "",
+                    "att":
+                    [
+                        {
+                            "name" : "DataFormat",
+                            "title" : "影像格式",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "ImageTime",
+                            "title" : "生产时间",
+                            "type" : "int",
+                            "value" : -9999
+                        },
+                        {
+                            "name" : "MapProjection",
+                            "title" : "投影类型",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "EarthModel",
+                            "title" : "参考椭球",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "PixelSpacing",
+                            "title" : "分辨率",
+                            "type" : "double",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "Location",
+                            "title" : "地理位置",
+                            "type" : "double",
+                            "value" :
+                            [
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name" : "DataType",
+                            "title" : "数据类型",
+                            "type" : "string",
+                            "value" : ""
+                        }]
+                },
+                {
+                    "multi": false,
+                    "name": "OutputVectorFileName",
+                    "suffix": "_WATER_INFERENCE.shp",
+                    "title": "输出矢量文件",
+                    "type": "string",
+                    "value": "",
+                    "att":
+                    [
+                        {
+                            "name" : "DataFormat",
+                            "title" : "影像格式",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "ImageTime",
+                            "title" : "生产时间",
+                            "type" : "int",
+                            "value" : -9999
+                        },
+                        {
+                            "name" : "MapProjection",
+                            "title" : "投影类型",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "EarthModel",
+                            "title" : "参考椭球",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "PixelSpacing",
+                            "title" : "分辨率",
+                            "type" : "double",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "Location",
+                            "title" : "地理位置",
+                            "type" : "double",
+                            "value" :
+                            [
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name" : "DataType",
+                            "title" : "数据类型",
+                            "type" : "string",
+                            "value" : ""
+                        }
+                    ]
+                },
+                {
+                    "multi": false,
+                    "name": "OutputTargetCount",
+                    "suffix": "_WATER_INFERENCE.txt",
+                    "title": "输出类别计数",
+                    "type": "string",
+                    "value": "",
+                    "att":
+                    [
+                        {
+                            "name" : "DataFormat",
+                            "title" : "影像格式",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "ImageTime",
+                            "title" : "生产时间",
+                            "type" : "int",
+                            "value" : -9999
+                        },
+                        {
+                            "name" : "MapProjection",
+                            "title" : "投影类型",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "EarthModel",
+                            "title" : "参考椭球",
+                            "type" : "string",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "PixelSpacing",
+                            "title" : "分辨率",
+                            "type" : "double",
+                            "value" : ""
+                        },
+                        {
+                            "name" : "Location",
+                            "title" : "地理位置",
+                            "type" : "double",
+                            "value" :
+                            [
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name" : "DataType",
+                            "title" : "数据类型",
+                            "type" : "string",
+                            "value" : ""
+                        }
+                    ]
+                }
+            ],
+            "ProgramStatus":
+            [
+                {
+                    "name": "ReturnCode",
+                    "title": "运行状态",
+                    "type": "int",
+                    "value": 1
+                },
+                {
+                    "name" : "ReturnAnalyseENG",
+                    "title" : "英文错误描述",
+                    "type" : "string",
+                    "value" : "water_inference Initialization"
+                },
+                {
+                    "name" : "ReturnAnalyseCHN",
+                    "title" : "中文错误描述",
+                    "type" : "string",
+                    "value" : "水体检测初始值"
+                },
+                {
+                    "name": "ProgressInfo",
+                    "title": "进度信息",
+                    "type": "int",
+                    "value": 0
+                }
+            ]
+        }
+    }
+}
